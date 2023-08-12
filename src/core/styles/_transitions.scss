@@ -1,0 +1,29 @@
+$buttonTransitionTiming: cubic-bezier(.37, -0.17, .54, 1.36);
+$buttonTransitionDuration: .5s;
+$buttonTransition: all $buttonTransitionDuration $buttonTransitionTiming;
+$buttonInsideTransition: all $buttonTransitionDuration $buttonTransitionTiming;
+
+
+.p-button {
+  transition: $buttonTransition;
+
+  * {
+    transition: $buttonInsideTransition;
+  }
+}
+
+.p-unselectable-text {
+  transition: $buttonTransition;
+
+  * {
+    transition: $buttonInsideTransition;
+  }
+}
+
+.p-tabview-nav-link {
+  transition: $buttonTransition;
+
+  * {
+    transition: $buttonInsideTransition;
+  }
+}
