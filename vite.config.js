@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { visualizer } from "rollup-plugin-visualizer";
 import compression from "vite-plugin-compression";
+import pluginPurgeCSS from "vite-plugin-purge";
 
 export default defineConfig({
   plugins: [
@@ -31,6 +32,9 @@ export default defineConfig({
       compressionOptions: {
         level: 9,
       },
+    }),
+    pluginPurgeCSS({
+      content: ["**/*.html", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     }),
   ],
   optimizeDeps: {
