@@ -5,7 +5,7 @@ import "primereact/resources/primereact.min.css";
 import "/src/core/styles/themes/mytheme/theme.scss";
 import "/src/core/styles/_base.scss";
 import "/src/core/styles/_transitions.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "/src/core/styles/themes/bootstrap/scss/bootstrap.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
