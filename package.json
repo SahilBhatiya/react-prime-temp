@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.7.0",
-    "firebase": "^10.1.0",
     "primeicons": "^6.0.1",
     "primereact": "^9.6.1",
     "react": "^18.2.0",

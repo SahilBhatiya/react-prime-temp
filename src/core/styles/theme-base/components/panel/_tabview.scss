@@ -4,6 +4,7 @@
     border: $tabviewNavBorder;
     border-width: $tabviewNavBorderWidth;
     border-radius: $tabviewBorderRadius;
+    width: max-content;
 
     li {
       margin-right: $tabviewHeaderSpacing;
