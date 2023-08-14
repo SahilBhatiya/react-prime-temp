@@ -1,5 +1,4 @@
 import { Button } from "primereact/button";
-import { AutoComplete } from "primereact/autocomplete";
 import { InputSwitch } from "primereact/inputswitch";
 import { useState } from "react";
 import { TabPanel, TabView } from "primereact/tabview";
@@ -24,9 +23,6 @@ function App() {
             >
               Tražim
             </Button>
-          </div>
-          <div className="col-md-2">
-            <AutoComplete className="rounded-4"></AutoComplete>
           </div>
           <div className="col-md-2">
             <InputSwitch

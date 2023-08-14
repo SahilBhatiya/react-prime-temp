@@ -35,6 +35,9 @@ export default defineConfig({
     }),
     pluginPurgeCSS({
       content: ["**/*.html", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+      keyframes: true,
+      variables: true,
+      fontFace: true,
     }),
   ],
   optimizeDeps: {
