@@ -6,8 +6,4 @@ import "/src/core/styles/_base.scss";
 import "/src/core/styles/_transitions.scss";
 import "/src/core/styles/themes/bootstrap/scss/bootstrap.scss";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
