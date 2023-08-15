@@ -8,16 +8,18 @@ import {
 } from "./helpers/animate-element/animate-element.helper.js";
 
 function App() {
+  const FADE_DURATION = 100;
+  const SCALE_DURATION = 200;
   const [checked, setChecked] = useState(false);
   const parentRef = useRef(null);
   const dropdownRef = useRef(null);
   const LENGTH = 10;
   const [values, setValues] = useState([]);
   useEffect(() => {
-    animateElement(parentRef);
+    animateElement(parentRef, "scale", SCALE_DURATION);
   }, [parentRef]);
   useEffect(() => {
-    animateElementWithAllChildren(dropdownRef, "fade");
+    animateElementWithAllChildren(dropdownRef, "fade", FADE_DURATION);
   }, [dropdownRef]);
 
   useEffect(() => {
@@ -31,8 +33,12 @@ function App() {
   const generateValues = async (length) => {
     for (let i = 0; i < length; i++) {
       addValue();
-      await delay(375);
+      await delay(SCALE_DURATION - SCALE_DURATION * 0.5);
     }
+  };
+
+  const resetValues = () => {
+    setValues([]);
   };
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const addValue = () => {
@@ -43,10 +49,17 @@ function App() {
 
   return (
     <>
-      <div className="container p-0" ref={parentRef}>
-        {values.map((value, index) => {
-          return <div key={index}>{value}</div>;
-        })}
+      <div className="container p-0">
+        <div className="row" ref={parentRef}>
+          {values.map((value, index) => {
+            return (
+              <div className="col-1 p-3" key={index}>
+                {value}
+              </div>
+            );
+          })}
+        </div>
+
         <div className="row align-items-center w-100 m-0">
           <div className="col-md-2">
             <Button
@@ -60,6 +73,7 @@ function App() {
           </div>
           <div className="col-md-2">
             <Button
+              onClick={resetValues}
               type="button"
               severity="secondary"
               className="h-40 mx-3"

@@ -1,30 +1,33 @@
 import autoAnimate from "@formkit/auto-animate";
 
-export const animateElement = (elementRef, effect) => {
+export const animateElement = (elementRef, effect, duration) => {
   if (elementRef.current) {
-    animateWithEffect(elementRef.current, effect);
+    animateWithEffect(elementRef.current, effect, duration);
   }
 };
 
-export const animateElementWithAllChildren = (elementRef, effect) => {
-  recursiveAnimate(elementRef.current, effect);
+export const animateElementWithAllChildren = (elementRef, effect, duration) => {
+  recursiveAnimate(elementRef.current, effect, duration);
 };
 
-const recursiveAnimate = (element, effect) => {
+const recursiveAnimate = (element, effect, duration) => {
   if (!element) {
     return;
   }
   if (element.children.length > 0) {
     for (let i = 0; i < element.children.length; i++) {
-      recursiveAnimate(element.children[i], effect);
+      recursiveAnimate(element.children[i], effect, duration);
     }
   }
-  animateWithEffect(element, effect);
+  animateWithEffect(element, effect, duration);
 };
 
-const animateWithEffect = (element, effect) => {
+const animateWithEffect = (element, effect, duration) => {
+  console.log(duration);
   if (effect === "fade") {
-    animateWithFade(element);
+    animateWithFade(element, duration);
+  } else if (effect === "scale") {
+    animateWithScale(element, duration);
   } else {
     defaultAnimate(element);
   }
@@ -34,7 +37,30 @@ const defaultAnimate = (element) => {
   autoAnimate(element);
 };
 
-const animateWithFade = (element) => {
+const animateWithScale = (element, duration) => {
+  autoAnimate(element, (el, action) => {
+    let keyframes;
+    if (action === "add") {
+      keyframes = [
+        { transform: "scale(0)", opacity: 0 },
+        { transform: "scale(.5)", opacity: 0.1 },
+        { transform: "scale(1)", opacity: 1 },
+      ];
+    }
+    if (action === "remove") {
+      keyframes = [
+        { transform: "scale(1)", opacity: 1 },
+        { transform: "scale(0)", opacity: 0 },
+      ];
+    }
+    return new KeyframeEffect(el, keyframes, {
+      duration: duration || 300,
+      easing: "ease-out",
+    });
+  });
+};
+
+const animateWithFade = (element, duration) => {
   autoAnimate(element, (el, action) => {
     let keyframes;
     if (action === "add") {
@@ -49,8 +75,9 @@ const animateWithFade = (element) => {
         { filter: "blur(100)", opacity: 0 },
       ];
     }
+    console.log(duration);
     return new KeyframeEffect(el, keyframes, {
-      duration: 300,
+      duration: duration || 300,
       easing: "ease-out",
     });
   });
