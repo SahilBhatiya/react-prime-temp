@@ -5710,6 +5710,7 @@ input.p-dropdown-label {
 }
 
 .p-tabview-nav-container {
+    width: min-content;
     position: relative;
 }
 
@@ -5722,6 +5723,7 @@ input.p-dropdown-label {
     overflow-y: hidden;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    max-width: min-content;
     overscroll-behavior: contain auto;
     position: relative;
 }

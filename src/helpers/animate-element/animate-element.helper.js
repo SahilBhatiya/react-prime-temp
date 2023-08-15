@@ -42,7 +42,7 @@ const animateWithScale = (element, duration) => {
     let keyframes;
     if (action === "add") {
       keyframes = [
-        { transform: "scale(0)", opacity: 0 },
+        { transform: "scale(0)", filter: "blur(5px)", opacity: 0 },
         { transform: "scale(.5)", opacity: 0.1 },
         { transform: "scale(1)", opacity: 1 },
       ];
@@ -50,7 +50,7 @@ const animateWithScale = (element, duration) => {
     if (action === "remove") {
       keyframes = [
         { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(0)", opacity: 0 },
+        { transform: "scale(0)", filter: "blur(5px)", opacity: 0 },
       ];
     }
     return new KeyframeEffect(el, keyframes, {
@@ -63,16 +63,25 @@ const animateWithScale = (element, duration) => {
 const animateWithFade = (element, duration) => {
   autoAnimate(element, (el, action) => {
     let keyframes;
+    const blur = 20;
     if (action === "add") {
       keyframes = [
-        { filter: "blur(100)", opacity: 0 },
-        { filter: "blur(0)", opacity: 1 },
+        {
+          filter: `blur(${blur}px)`,
+          transform: "scale(1.2)",
+          opacity: 0,
+        },
+        { opacity: 1 },
       ];
     }
     if (action === "remove") {
       keyframes = [
-        { filter: "blur(0)", opacity: 1 },
-        { filter: "blur(100)", opacity: 0 },
+        { opacity: 1 },
+        {
+          filter: `blur(${blur}px)`,
+          transform: "scale(.8)",
+          opacity: 0,
+        },
       ];
     }
     console.log(duration);

@@ -8,7 +8,7 @@ import {
 } from "./helpers/animate-element/animate-element.helper.js";
 
 function App() {
-  const FADE_DURATION = 100;
+  const FADE_DURATION = 400;
   const SCALE_DURATION = 200;
   const [checked, setChecked] = useState(false);
   const parentRef = useRef(null);
@@ -89,15 +89,18 @@ function App() {
               onChange={(e) => setChecked(e.value)}
             />
           </div>
-          <div className="col-md-2" ref={dropdownRef}>
+          <div
+            className="col-md-2 position-fixed top-10 p-2 right-10 shadow-lg rounded-4 bg-white transition-all-auto min-width min-h-200"
+            ref={dropdownRef}
+          >
             <TabView>
               <TabPanel header="Tražim">
-                <div key="1">
+                <div className="d-flex flex-column justify-content-center align-items-center">
                   <h1>Content I</h1>
                 </div>
               </TabPanel>
               <TabPanel header="Nudim">
-                <div key="2">
+                <div className="d-flex flex-column justify-content-center align-items-center">
                   <h1>Content II</h1>
                   <div>asdasd</div>
                 </div>

@@ -1,4 +1,6 @@
 .p-tabview {
+  width: min-content;
+
   .p-tabview-nav {
     background: $tabviewNavBg;
     border: $tabviewNavBorder;
