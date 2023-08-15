@@ -44,11 +44,11 @@ function App() {
 
   return (
     <>
-      <div className="container p-0">
-        <div className="row" ref={parentRef}>
+      <div className="container p-4">
+        <div className="row gap-2 justify-content-start" ref={parentRef}>
           {values.map((value, index) => {
             return (
-              <div className="col-1 p-3" key={index}>
+              <div className="col-5 col-md-1 p-3" key={index}>
                 {value}
               </div>
             );
