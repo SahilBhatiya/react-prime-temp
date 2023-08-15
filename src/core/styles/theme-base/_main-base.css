@@ -734,7 +734,7 @@
 
 /* Keyboard Support */
 .p-items-hidden .p-carousel-item {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .p-items-hidden .p-carousel-item.p-carousel-item-active {

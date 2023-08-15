@@ -45,3 +45,45 @@ html, body {
 .min-h-200 {
   min-height: 200px;
 }
+
+.gap-20 {
+  gap: 20px;
+}
+
+
+.w-180 {
+  width: 180px;
+}
+
+.h-320 {
+  height: 320px;
+}
+
+
+.home__screen__cards {
+  position: relative;
+  padding-top: 40px;
+
+  .p-carousel-item {
+    margin: 20px;
+    max-width: min-content !important;
+  }
+
+  .p-carousel-prev {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    z-index: 1;
+  }
+
+  .p-carousel-next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.w-50vw {
+  width: 50vw;
+}
