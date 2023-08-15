@@ -8,8 +8,8 @@ import {
 } from "./helpers/animate-element/animate-element.helper.js";
 
 function App() {
-  const FADE_DURATION = 400;
-  const SCALE_DURATION = 200;
+  const FADE_DURATION = 300;
+  const SCALE_DURATION = 80;
   const [checked, setChecked] = useState(false);
   const parentRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -33,7 +33,7 @@ function App() {
   const generateValues = async (length) => {
     for (let i = 0; i < length; i++) {
       addValue();
-      await delay(SCALE_DURATION - SCALE_DURATION * 0.5);
+      await delay(SCALE_DURATION - SCALE_DURATION * 0.0);
     }
   };
 
@@ -54,7 +54,7 @@ function App() {
           {values.map((value, index) => {
             return (
               <div className="col-1 p-3" key={index}>
-                {value}
+                {value} {index}
               </div>
             );
           })}

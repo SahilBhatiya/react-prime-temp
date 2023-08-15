@@ -63,12 +63,14 @@ const animateWithScale = (element, duration) => {
 const animateWithFade = (element, duration) => {
   autoAnimate(element, (el, action) => {
     let keyframes;
-    const blur = 20;
+    const _blur = 10;
+    const _highScale = 1.4;
+    const _lowScale = 0.6;
     if (action === "add") {
       keyframes = [
         {
-          filter: `blur(${blur}px)`,
-          transform: "scale(1.2)",
+          filter: `blur(${_blur}px)`,
+          transform: `scale(${_highScale})`,
           opacity: 0,
         },
         { opacity: 1 },
@@ -78,8 +80,8 @@ const animateWithFade = (element, duration) => {
       keyframes = [
         { opacity: 1 },
         {
-          filter: `blur(${blur}px)`,
-          transform: "scale(.8)",
+          filter: `blur(${_blur}px)`,
+          transform: `scale(${_lowScale})`,
           opacity: 0,
         },
       ];
