@@ -23,7 +23,6 @@ const recursiveAnimate = (element, effect, duration) => {
 };
 
 const animateWithEffect = (element, effect, duration) => {
-  console.log(duration);
   if (effect === "fade") {
     animateWithFade(element, duration);
   } else if (effect === "scale") {
@@ -38,24 +37,33 @@ const defaultAnimate = (element) => {
 };
 
 const animateWithScale = (element, duration) => {
-  autoAnimate(element, (el, action) => {
+  autoAnimate(element, (el, action, oldCoords, newCoords) => {
     let keyframes;
     if (action === "add") {
       keyframes = [
-        { transform: "scale(0)", filter: "blur(5px)", opacity: 0 },
-        { transform: "scale(.5)", opacity: 0.1 },
-        { transform: "scale(1)", opacity: 1 },
+        {
+          transform: "scale(0.5) translateX(200%) ",
+          transformStyle: "preserve-3d",
+          transformOrigin: "right center",
+          opacity: 0,
+        },
+        { transform: "scale(1)", transformStyle: "preserve-3d", opacity: 1 },
       ];
     }
     if (action === "remove") {
       keyframes = [
-        { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(0)", filter: "blur(5px)", opacity: 0 },
+        { transform: "scale(1)", transformStyle: "preserve-3d", opacity: 1 },
+        {
+          transform: "scale(0.5) translateX(200%) ",
+          transformStyle: "preserve-3d",
+          transformOrigin: "right center",
+          opacity: 0,
+        },
       ];
     }
     return new KeyframeEffect(el, keyframes, {
       duration: duration || 300,
-      easing: "ease-out",
+      easing: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
     });
   });
 };
@@ -86,7 +94,6 @@ const animateWithFade = (element, duration) => {
         },
       ];
     }
-    console.log(duration);
     return new KeyframeEffect(el, keyframes, {
       duration: duration || 300,
       easing: "ease-out",
