@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.7.0",
+    "@rollup/pluginutils": "^5.0.3",
     "primereact": "^9.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,6 +25,7 @@
     "rollup-plugin-visualizer": "^5.9.2",
     "vite": "^4.4.0",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-prefetch-module": "^1.0.5",
     "vite-plugin-purge": "^1.0.2"
   }
 }

@@ -1,17 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { visualizer } from "rollup-plugin-visualizer";
 import compression from "vite-plugin-compression";
 import pluginPurgeCSS from "vite-plugin-purge";
+import { VitePluginPrefetchModule } from "vite-plugin-prefetch-module";
 
 export default defineConfig({
   plugins: [
     react(),
-    visualizer({
-      open: true,
-      gzipSize: true,
-      brotliSize: true,
-    }),
+    VitePluginPrefetchModule({ concurrent: 10 }),
     compression({
       ext: ".br",
       algorithm: "brotliCompress",

@@ -65,8 +65,12 @@ html, body {
   padding-top: 40px;
 
   .p-carousel-item {
-    margin: 20px;
     max-width: min-content !important;
+  }
+
+  .p-carousel-items-container {
+    gap: 20px;
+    padding: 10px;
   }
 
   .p-carousel-prev {

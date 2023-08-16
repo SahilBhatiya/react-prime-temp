@@ -59,9 +59,10 @@ function App() {
         <div className="row" ref={parentRef}>
           <Carousel
             value={values}
-            numScroll={1}
+            numScroll={2}
+            numVisible={6}
             page={page}
-            numVisible={7}
+            onPageChange={(e) => setPage(e.page)}
             itemTemplate={cardTemplate}
             showIndicators={false}
             showNavigators={true}
@@ -77,6 +78,14 @@ function App() {
               rounded
             >
               Next
+            </Button>
+            <Button
+              onClick={() => addValue()}
+              type="button"
+              className="h-40 mx-3 "
+              rounded
+            >
+              Add
             </Button>
             <Button
               onClick={resetPage}
