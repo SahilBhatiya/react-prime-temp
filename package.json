@@ -26,6 +26,7 @@
     "vite": "^4.4.0",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-prefetch-module": "^1.0.5",
+    "vite-plugin-preload": "^0.3.1",
     "vite-plugin-purge": "^1.0.2"
   }
 }

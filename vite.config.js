@@ -3,10 +3,12 @@ import react from "@vitejs/plugin-react";
 import compression from "vite-plugin-compression";
 import pluginPurgeCSS from "vite-plugin-purge";
 import { VitePluginPrefetchModule } from "vite-plugin-prefetch-module";
+import preload from "vite-plugin-preload";
 
 export default defineConfig({
   plugins: [
     react(),
+    preload(),
     VitePluginPrefetchModule({ concurrent: 10 }),
     compression({
       ext: ".br",
